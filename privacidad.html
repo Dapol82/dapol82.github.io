@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Política de privacidad — RESPALDOS-PROYECTOS-RCLONE</title>
+    <meta
+      name="description"
+      content="Política de privacidad de RESPALDOS-PROYECTOS-RCLONE: qué datos procesa, cómo se guardan las credenciales y cómo revocar el acceso."
+    />
+    <style>
+      :root {
+        --fondo: #ffffff;
+        --texto: #1a1d21;
+        --suave: #5a6270;
+        --borde: #e3e6ea;
+        --acento: #1a4f8a;
+        --caja: #f6f8fa;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --fondo: #14171a;
+          --texto: #e8eaed;
+          --suave: #9aa3ad;
+          --borde: #2a2f35;
+          --acento: #7bb0e8;
+          --caja: #1c2024;
+        }
+      }
+      :root[data-theme="dark"] {
+        --fondo: #14171a;
+        --texto: #e8eaed;
+        --suave: #9aa3ad;
+        --borde: #2a2f35;
+        --acento: #7bb0e8;
+        --caja: #1c2024;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--fondo);
+        color: var(--texto);
+        font:
+          16px/1.65 system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        -webkit-text-size-adjust: 100%;
+      }
+      .envoltura {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 2.5rem 16px 4rem;
+      }
+      header {
+        border-bottom: 1px solid var(--borde);
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      h1 {
+        font-size: 1.45rem;
+        line-height: 1.3;
+        margin: 0 0 0.4rem;
+        letter-spacing: -0.01em;
+      }
+      .fecha {
+        color: var(--suave);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+      h2 {
+        font-size: 1.05rem;
+        margin: 2.2rem 0 0.6rem;
+        letter-spacing: -0.005em;
+      }
+      ul {
+        padding-left: 1.3rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      code {
+        background: var(--caja);
+        border: 1px solid var(--borde);
+        border-radius: 4px;
+        padding: 0.1em 0.35em;
+        font-size: 0.88em;
+        word-break: break-all;
+      }
+      .caja {
+        background: var(--caja);
+        border: 1px solid var(--borde);
+        border-radius: 8px;
+        padding: 1rem 1.2rem;
+        margin: 1.5rem 0;
+      }
+      .caja p:first-child {
+        margin-top: 0;
+      }
+      .caja p:last-child {
+        margin-bottom: 0;
+      }
+      a {
+        color: var(--acento);
+      }
+      footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--borde);
+        color: var(--suave);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="envoltura">
+      <header>
+        <h1>Política de privacidad</h1>
+        <p class="fecha">RESPALDOS-PROYECTOS-RCLONE · 4 de noviembre de 2026</p>
+      </header>
+
+      <p>
+        <a href="index.html">&larr; Volver a la página principal</a>
+      </p>
+
+      <h2>1. Alcance</h2>
+      <p>
+        <strong>RESPALDOS-PROYECTOS-RCLONE</strong> es una configuración privada de
+        <a href="https://rclone.org/" rel="noopener">rclone</a> que el propietario usa para guardar
+        copias de seguridad de sus propios proyectos en su propio Google Drive.
+      </p>
+      <p>
+        No se ofrece a terceros, no tiene usuarios además del propietario y no procesa datos de
+        otras personas. Se ejecuta en el equipo del propietario y no hay ningún servidor intermedio.
+      </p>
+
+      <h2>2. Qué información se procesa</h2>
+      <ul>
+        <li>
+          <strong>Archivos de los proyectos del propietario</strong> que él mismo selecciona para la
+          copia: paquetes <code>.bundle</code> de repositorios Git, documentos y manifiestos de
+          integridad con nombres, tamaños y huellas SHA-256.
+        </li>
+        <li>
+          <strong>Metadatos de los archivos que la aplicación crea en Google Drive</strong>:
+          identificador, nombre, tamaño, tipo y fechas, necesarios para subir y verificar.
+        </li>
+        <li>
+          <strong>Credenciales OAuth</strong> emitidas por Google al autorizar: un token de acceso y
+          un token de actualización.
+        </li>
+      </ul>
+      <p>
+        No se recogen datos de navegación, ni analítica, ni identificadores publicitarios, ni
+        información de contactos, correo, calendario o fotografías.
+      </p>
+
+      <h2>3. Para qué se usa el acceso a Google Drive</h2>
+      <p>Para tres cosas, y ninguna más:</p>
+      <ul>
+        <li>crear carpetas de respaldo y subir a ellas los archivos de copia;</li>
+        <li>consultar el tamaño y los metadatos de esos archivos;</li>
+        <li>
+          descargarlos de vuelta para comprobar que la copia es íntegra, comparando su huella
+          SHA-256 con la del archivo original.
+        </li>
+      </ul>
+
+      <h2>4. Alcance del permiso solicitado</h2>
+      <div class="caja">
+        <p><code>https://www.googleapis.com/auth/drive.file</code></p>
+        <p>
+          Google limita este permiso <strong>a los archivos que la propia aplicación crea</strong>, o
+          que el usuario le entrega expresamente. El resto del contenido de Google Drive queda fuera
+          de su alcance: la aplicación no puede verlo, leerlo, modificarlo ni eliminarlo.
+        </p>
+      </div>
+      <p>
+        No se solicita <code>drive</code> (acceso completo), ni ningún permiso de Gmail, Calendar,
+        Contactos, Fotos u otros servicios de Google.
+      </p>
+
+      <h2>5. Dónde se guardan las credenciales</h2>
+      <p>
+        Los tokens OAuth se guardan <strong>únicamente en el equipo del propietario</strong>, en el
+        archivo de configuración de rclone, situado en
+        <code>%APPDATA%\rclone\rclone.conf</code>.
+      </p>
+      <p>
+        Ese archivo está <strong>cifrado con contraseña</strong> mediante la función de cifrado de
+        configuración que rclone incorpora. La contraseña la introduce el propietario en cada
+        ejecución y no se almacena en el equipo, ni en variables de entorno persistentes, ni en
+        archivos de órdenes.
+      </p>
+      <p>
+        Las credenciales no se transmiten a ningún destino distinto de los servicios de Google
+        necesarios para la autorización y el acceso a Drive.
+      </p>
+
+      <h2>6. Con quién se comparten los datos</h2>
+      <p>
+        Con nadie. Los archivos viajan directamente entre el equipo del propietario y Google Drive.
+        No intervienen servidores propios ni servicios de terceros, porque no existe ninguno en esta
+        configuración.
+      </p>
+      <p>
+        <strong>No se venden datos, no se usan para publicidad y no se emplean para entrenar
+        modelos</strong> de ninguna clase.
+      </p>
+
+      <h2>7. Conservación y eliminación</h2>
+      <p>
+        Las copias de seguridad se guardan en carpetas fechadas que no se sobrescriben: cada
+        ejecución crea una carpeta nueva. <strong>No hay eliminación automática</strong>: los
+        respaldos permanecen en Google Drive hasta que el propietario decide retirarlos a mano.
+      </p>
+      <p>
+        El propietario puede eliminar en cualquier momento las carpetas y archivos de respaldo desde
+        su propio Google Drive.
+      </p>
+
+      <h2>8. Cómo revocar el acceso</h2>
+      <p>Cualquiera de estas acciones corta el acceso:</p>
+      <ul>
+        <li>
+          retirar la aplicación en la Cuenta de Google, en el apartado de aplicaciones de terceros
+          con acceso a la cuenta: eso invalida el token de actualización;
+        </li>
+        <li>
+          borrar el archivo <code>rclone.conf</code> del equipo, lo que elimina las credenciales
+          guardadas localmente.
+        </li>
+      </ul>
+      <p>
+        Revocar el acceso no elimina los archivos de respaldo ya subidos: siguen en el Google Drive
+        del propietario, a su disposición.
+      </p>
+
+      <h2>9. Datos de Google y política aplicable</h2>
+      <p>
+        El uso de la información obtenida a través de las API de Google se ajusta a la
+        <a
+          href="https://developers.google.com/terms/api-services-user-data-policy"
+          rel="noopener"
+          >Google API Services User Data Policy</a
+        >, incluidos sus requisitos de uso limitado.
+      </p>
+      <p>
+        En concreto: los datos a los que la aplicación accede se usan exclusivamente para la función
+        de respaldo y verificación de integridad descrita en esta política, no se transfieren a
+        terceros y no se emplean con fines publicitarios.
+      </p>
+
+      <h2>10. Cambios en esta política</h2>
+      <p>
+        Si la configuración cambia —por ejemplo, si se añadieran otros permisos o destinos— esta
+        página se actualizará y constará la fecha del cambio.
+      </p>
+
+      <h2>11. Responsable y contacto</h2>
+      <p>
+        Danny Hernández ·
+        <a href="mailto:dapol82@gmail.com">dapol82@gmail.com</a>
+      </p>
+
+      <footer>
+        <p>
+          Esta política describe una configuración privada de rclone, software libre de terceros bajo
+          licencia MIT. No constituye una política de rclone ni de sus desarrolladores.
+        </p>
+        <p>Última actualización: 4 de noviembre de 2026.</p>
+      </footer>
+    </div>
+  </body>
+</html>

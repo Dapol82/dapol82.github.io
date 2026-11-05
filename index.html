@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RESPALDOS-PROYECTOS-RCLONE</title>
+    <meta
+      name="description"
+      content="Herramienta privada de respaldo y recuperación de archivos mediante rclone y Google Drive. Uso exclusivo del propietario."
+    />
+    <style>
+      :root {
+        --fondo: #ffffff;
+        --texto: #1a1d21;
+        --suave: #5a6270;
+        --borde: #e3e6ea;
+        --acento: #1a4f8a;
+        --caja: #f6f8fa;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --fondo: #14171a;
+          --texto: #e8eaed;
+          --suave: #9aa3ad;
+          --borde: #2a2f35;
+          --acento: #7bb0e8;
+          --caja: #1c2024;
+        }
+      }
+      :root[data-theme="dark"] {
+        --fondo: #14171a;
+        --texto: #e8eaed;
+        --suave: #9aa3ad;
+        --borde: #2a2f35;
+        --acento: #7bb0e8;
+        --caja: #1c2024;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--fondo);
+        color: var(--texto);
+        font:
+          16px/1.65 system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        -webkit-text-size-adjust: 100%;
+      }
+      .envoltura {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 2.5rem 16px 4rem;
+      }
+      header {
+        border-bottom: 1px solid var(--borde);
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+        margin: 0 0 0.4rem;
+        letter-spacing: -0.01em;
+      }
+      .lema {
+        color: var(--suave);
+        margin: 0;
+        font-size: 0.95rem;
+      }
+      h2 {
+        font-size: 1.05rem;
+        margin: 2.2rem 0 0.6rem;
+        letter-spacing: -0.005em;
+      }
+      p,
+      li {
+        color: var(--texto);
+      }
+      ul {
+        padding-left: 1.3rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      code {
+        background: var(--caja);
+        border: 1px solid var(--borde);
+        border-radius: 4px;
+        padding: 0.1em 0.35em;
+        font-size: 0.88em;
+        word-break: break-all;
+      }
+      .caja {
+        background: var(--caja);
+        border: 1px solid var(--borde);
+        border-radius: 8px;
+        padding: 1rem 1.2rem;
+        margin: 1.5rem 0;
+      }
+      .caja p:first-child {
+        margin-top: 0;
+      }
+      .caja p:last-child {
+        margin-bottom: 0;
+      }
+      a {
+        color: var(--acento);
+      }
+      footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--borde);
+        color: var(--suave);
+        font-size: 0.9rem;
+      }
+      .enlace-privacidad {
+        display: inline-block;
+        margin-top: 0.5rem;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="envoltura">
+      <header>
+        <h1>RESPALDOS-PROYECTOS-RCLONE</h1>
+        <p class="lema">
+          Herramienta privada de respaldo y recuperación de archivos. Uso exclusivo del
+          propietario.
+        </p>
+      </header>
+
+      <h2>Qué es</h2>
+      <p>
+        Una configuración privada de <strong>rclone</strong>, un programa de código abierto de
+        sincronización y copia de archivos, usada para guardar copias de seguridad de proyectos
+        propios en Google Drive.
+      </p>
+      <p>
+        No es un producto, no se distribuye y no está disponible para terceros. No hay registro de
+        usuarios, ni servicio en línea, ni interfaz pública. Es una herramienta de línea de órdenes
+        que se ejecuta en el equipo del propietario.
+      </p>
+
+      <h2>Qué hace con Google Drive</h2>
+      <p>
+        Sube a Google Drive paquetes de copia de seguridad —principalmente archivos
+        <code>.bundle</code> de repositorios Git y documentos de los proyectos— y los descarga de
+        vuelta para comprobar que la copia es íntegra, comparando su huella SHA-256 con la del
+        original.
+      </p>
+
+      <h2>Por qué pide autorización</h2>
+      <p>
+        Para escribir y leer archivos en el Google Drive del propio propietario hace falta su
+        autorización explícita. La aplicación solicita un único permiso:
+      </p>
+      <div class="caja">
+        <p><code>https://www.googleapis.com/auth/drive.file</code></p>
+        <p>
+          Este permiso limita el acceso <strong>a los archivos que la propia aplicación crea</strong>.
+          No concede acceso al resto del contenido de Google Drive: los demás archivos y carpetas de
+          la cuenta quedan fuera de su alcance.
+        </p>
+      </div>
+      <p>
+        No se solicita acceso completo a Google Drive, ni a Gmail, ni a Calendar, ni a Contactos, ni
+        a ningún otro servicio.
+      </p>
+
+      <h2>Quién la usa</h2>
+      <p>
+        Una sola persona: el titular de la cuenta de Google que concede la autorización, sobre su
+        propio Google Drive. No se comparte el acceso, no hay otros usuarios y no se procesan datos
+        de terceros.
+      </p>
+
+      <h2>Privacidad</h2>
+      <p>
+        La política de privacidad describe qué información se procesa, dónde se guardan las
+        credenciales y cómo revocar el acceso.
+      </p>
+      <p>
+        <a class="enlace-privacidad" href="privacidad.html">Leer la política de privacidad</a>
+      </p>
+
+      <h2>Contacto</h2>
+      <p>
+        Responsable: Danny Hernández ·
+        <a href="mailto:dapol82@gmail.com">dapol82@gmail.com</a>
+      </p>
+
+      <footer>
+        <p>
+          rclone es software libre de terceros, publicado bajo licencia MIT, disponible en
+          <a href="https://rclone.org/" rel="noopener">rclone.org</a>. Esta página describe
+          únicamente la configuración privada que de él hace el propietario.
+        </p>
+        <p>Última actualización: 4 de noviembre de 2026.</p>
+      </footer>
+    </div>
+  </body>
+</html>
